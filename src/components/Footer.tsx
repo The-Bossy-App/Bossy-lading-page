@@ -3,9 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 
-export interface IFooterProps {}
+export interface IFooterProps { }
 
 const Footer: React.FC<IFooterProps> = (props) => {
+  const [submitted, setSubmitted] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const emailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
+
   const navItems = React.useMemo(
     () => [
       {
@@ -78,16 +82,28 @@ const Footer: React.FC<IFooterProps> = (props) => {
           <p className="text-lg font-normal text-grey-300 w-3/4">
             Bossy is a Financial Services Inc. company 2024
           </p>
-          <div className="relative lg:w-3/4 w-11/12">
-            <Mail className="absolute left-6 top-0 bottom-0 m-auto w-5 h-5 text-grey-600" />
-            <input
-              type="text"
-              placeholder="Your email address"
-              className="w-full px-12 h-14 border-2 border-grey-600 rounded-full text-sm lg:text-base"
-            />
-            <button className="lg:py-3.5 py-2 rounded-full bg-primary-800 flex items-center justify-center text-white lg:px-10 px-4 absolute right-0 top-0 bottom-0">
-              Join Waitlist
-            </button>
+          <div className="w-full">
+            <div className="relative lg:w-3/4 w-11/12">
+              <Mail className="absolute left-6 top-0 bottom-0 m-auto w-5 h-5 text-grey-600" />
+              <input
+                type="text"
+                placeholder="Your email address"
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-12 h-14 border-2 border-grey-600 text-grey-600 rounded-full text-sm lg:text-base"
+              />
+              <button
+                className="lg:py-3.5 py-2 rounded-full bg-primary-800 flex items-center justify-center text-white lg:px-10 px-4 absolute right-0 top-0 bottom-0"
+                onClick={() => {
+                  if (email.match(emailRegex)) {
+                    setSubmitted(true)
+                  }
+                }}
+              >
+                Join Waitlist
+              </button>
+            </div>
+            {submitted && <p className="text-lg text-white">Thank you for joining our waitlist!</p>}
+
           </div>
         </div>
         <div className="flex lg:items-center w-fit items-start lg:space-x-10 underline font-medium lg:flex-row flex-col lg:text-base text-2xl space-y-4 lg:space-y-0">
