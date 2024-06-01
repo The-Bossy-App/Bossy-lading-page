@@ -59,7 +59,7 @@ const Footer: React.FC<IFooterProps> = (props) => {
   );
   const contacts = React.useMemo(
     () => [
-      "support@BossyPaypay.com",
+      "support@bossypay.com",
     ],
     []
   );
