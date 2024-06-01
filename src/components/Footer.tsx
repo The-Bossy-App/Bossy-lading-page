@@ -88,7 +88,7 @@ const Footer: React.FC<IFooterProps> = (props) => {
             <h4 className="font-black text-2xl">BossyPay</h4>
           </div>
           <p className="text-lg font-normal text-grey-300 w-3/4">
-            BossyPay is a Financial Services Inc. company 2024
+          BossyPay is a part of Bossy Miltitech LTD.
           </p>
           <div className="w-full">
             <div className="relative lg:w-3/4 w-11/12">
