@@ -59,9 +59,7 @@ const Footer: React.FC<IFooterProps> = (props) => {
   );
   const contacts = React.useMemo(
     () => [
-      "20 Presidential Street, Garki, Abuja, Nigeria",
-      "Support@bossy.com",
-      "+234 810 6652 973",
+      "support@bossy.com",
     ],
     []
   );
