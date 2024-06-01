@@ -92,7 +92,7 @@ const Footer: React.FC<IFooterProps> = (props) => {
                 className="w-full px-12 h-14 border-2 border-grey-600 text-grey-600 rounded-full text-sm lg:text-base"
               />
               <button
-                className="lg:py-3.5 py-2 rounded-full bg-primary-800 flex items-center justify-center text-white lg:px-10 px-4 absolute right-0 top-0 bottom-0"
+                className="lg:py-3.5 py-2 rounded-full bg-primary-800 flex items-center justify-center lg:text-base text-xs text-white lg:px-10 px-4 absolute right-0 top-0 bottom-0"
                 onClick={() => {
                   if (email.match(emailRegex)) {
                     setSubmitted(true)

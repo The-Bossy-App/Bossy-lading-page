@@ -27,7 +27,7 @@ const Hero: React.FC<IHeroProps> = (props) => {
               className="w-full px-12 h-14 border-2 border-grey-600 rounded-full"
             />
             <button
-              className="py-3.5 rounded-full bg-primary-800 flex items-center justify-center text-white px-10 absolute right-0 top-0 bottom-0"
+              className="py-3.5 rounded-full bg-primary-800 flex items-center justify-center text-white lg:text-base text-xs px-10 absolute right-0 top-0 bottom-0"
               onClick={() => {
                 if (email.match(emailRegex)) {
                   setSubmitted(true)

@@ -42,7 +42,7 @@ const Navbar: React.FC<INavbarProps> = (props) => {
             </Link>
           ))}
         </div>
-        <button className="py-3.5 rounded-full bg-primary-800 text-white px-10 ">
+        <button className="py-3.5 rounded-full bg-primary-800 text-white lg:text-base text-xs px-10 ">
           Join Waitlist
         </button>
       </div>
