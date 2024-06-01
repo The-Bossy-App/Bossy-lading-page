@@ -1,3 +1,4 @@
+import { addEmailToWaitList } from "@src/lib/utils";
 import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +10,14 @@ const Footer: React.FC<IFooterProps> = (props) => {
   const [submitted, setSubmitted] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const emailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
+  const [loading, setLoading] = React.useState(false);
+  const handleWaitlistSubmit = async () => {
+    if (!email.match(emailRegex)) return;
+    setLoading(true)
+    const response = await addEmailToWaitList(email)
+    setSubmitted(true)
+    setLoading(false)
+  }
 
   const navItems = React.useMemo(
     () => [
@@ -89,17 +98,14 @@ const Footer: React.FC<IFooterProps> = (props) => {
                 type="text"
                 placeholder="Your email address"
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-12 h-14 border-2 border-grey-600 text-grey-600 rounded-full text-sm lg:text-base"
+                className="w-full pl-12 pr-28 lg:pr-44 h-14 border-2 border-grey-600 text-grey-600 rounded-full text-xs lg:text-base"
               />
               <button
                 className="lg:py-3.5 py-2 rounded-full bg-primary-800 flex items-center justify-center lg:text-base text-xs text-white lg:px-10 px-4 absolute right-0 top-0 bottom-0"
-                onClick={() => {
-                  if (email.match(emailRegex)) {
-                    setSubmitted(true)
-                  }
-                }}
-              >
-                Join Waitlist
+                onClick={handleWaitlistSubmit}
+                disabled={loading}
+            >
+              {loading ? "Loading" : "Join Waitlist"}
               </button>
             </div>
             {submitted && <p className="text-lg text-white">Thank you for joining our waitlist!</p>}

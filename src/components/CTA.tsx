@@ -1,3 +1,4 @@
+import { addEmailToWaitList } from "@src/lib/utils";
 import { Mail } from "lucide-react";
 import * as React from "react";
 
@@ -6,7 +7,16 @@ export interface ICTAProps { }
 const CTA: React.FC<ICTAProps> = (props) => {
   const [submitted, setSubmitted] = React.useState(false);
   const [email, setEmail] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const emailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
+  const handleWaitlistSubmit = async () => {
+    console.log({ email })
+    if (!email.match(emailRegex)) return;
+    setLoading(true)
+    const response = await addEmailToWaitList(email)
+    setSubmitted(true)
+    setLoading(false)
+  }
   return (
     <section className="w-full text-center items-center bg-primary-800 flex flex-col text-white px-6 py-16 space-y-4 rounded-3xl">
       <h2 className="lg:text-4xl md:text-3xl text-2xl lg:w-5/12 font-semibold leading-snug">Ready to take control of your finances? </h2>
@@ -14,24 +24,21 @@ const CTA: React.FC<ICTAProps> = (props) => {
         Welcome to our platform, where we revolutionise your finance journey!
         Input your email and start your journey towards financial freedom
       </p>
-      <div className="w-fit mx-auto lg:w-5/12 w-11/12">
+      <div className=" mx-auto lg:w-5/12 w-11/12">
         <div className="relative w-full">
           <Mail className="absolute left-6 top-0 bottom-0 m-auto w-5 h-5 text-grey-600" />
           <input
             type="text"
             placeholder="Your email address"
-            className="w-full px-12 h-14 border-2 text-grey-600 border-grey-600 rounded-full text-sm lg:text-base"
+            className="w-full pl-12 pr-28 lg:pr-48 h-14 border-2 text-grey-600 border-grey-600 rounded-full text-sm lg:text-base"
             onChange={(e) => setEmail(e.target.value)}
           />
           <button
             className="lg:py-3.5 py-2 rounded-full bg-black flex items-center justify-center text-white lg:px-10 px-4 absolute right-0 top-0 bottom-0"
-            onClick={() => {
-              if (email.match(emailRegex)) {
-                setSubmitted(true)
-              }
-            }}
-          >
-            Join Waitlist
+            onClick={handleWaitlistSubmit}
+            disabled={loading}
+            >
+              {loading ? "Loading" : "Join Waitlist"}
           </button>
         </div>
         {submitted && <p className="text-lg text-white">Thank you for joining our waitlist!</p>}
