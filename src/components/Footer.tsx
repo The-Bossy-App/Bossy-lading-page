@@ -88,7 +88,7 @@ const Footer: React.FC<IFooterProps> = (props) => {
             <h4 className="font-black text-2xl">BossyPay</h4>
           </div>
           <p className="text-lg font-normal text-grey-300 w-3/4">
-          BossyPay is a part of Bossy Miltitech LTD.
+            BossyPay is a part of Bossy Miltitech LTD.
           </p>
           <div className="w-full">
             <div className="relative lg:w-3/4 w-11/12">
@@ -103,8 +103,8 @@ const Footer: React.FC<IFooterProps> = (props) => {
                 className="lg:py-3.5 py-2 rounded-full bg-primary-800 flex items-center justify-center lg:text-base text-xs text-white lg:px-10 px-4 absolute right-0 top-0 bottom-0"
                 onClick={handleWaitlistSubmit}
                 disabled={loading}
-            >
-              {loading ? "Loading" : "Join Waitlist"}
+              >
+                {loading ? "Loading" : "Join Waitlist"}
               </button>
             </div>
             {submitted && <p className="text-lg text-white">Thank you for joining our waitlist!</p>}
