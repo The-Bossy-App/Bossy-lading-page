@@ -24,7 +24,7 @@ const Hero: React.FC<IHeroProps> = (props) => {
           Make Your Payment <span className="text-primary-800">Faster</span> and <span className="text-primary-800">Easier</span>
         </h2>
         <p className="text-grey-600 xl:text-2xl md:text-xl text:lg">
-          Bossy is a free, secure and easy way to pay other people in your
+          BossyPay is a free, secure and easy way to pay other people in your
           neighbourhood.<br /> No fees!
         </p>
         <div>

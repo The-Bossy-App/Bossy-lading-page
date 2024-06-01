@@ -13,16 +13,16 @@ const FAQ: React.FC<IFAQProps> = (props) => {
   const faqs = React.useMemo(
     () => [
       {
-        question: "What’s Bossy App?",
+        question: "What’s BossyPay App?",
         answer:
-          "Bossy is a free, secure and easy way to pay other people in your neighbourhood.",
+          "BossyPay is a free, secure and easy way to pay other people in your neighbourhood.",
       },
       {
-        question: "How Bossy works?",
+        question: "How BossyPay works?",
         answer: "",
       },
       {
-        question: "How to activate Bossy account?",
+        question: "How to activate BossyPay account?",
       },
       {
         question: "How to connect my credit card?",
@@ -35,8 +35,8 @@ const FAQ: React.FC<IFAQProps> = (props) => {
         answer: "By click",
       },
       {
-        question: "Is Bossy available for everyone?",
-        answer: "No, Bossy is only available for people in Nigeria.",
+        question: "Is BossyPay available for everyone?",
+        answer: "No, BossyPay is only available for people in Nigeria.",
       },
       {
         question: "Can I send my money to others by ID?",
@@ -45,12 +45,12 @@ const FAQ: React.FC<IFAQProps> = (props) => {
     []
   );
   return (
-    <section className="text-center space-y-10">
+    <section id="faq" className="text-center space-y-10">
       <h2 className="xl:text-6xl md:text-5xl text-4xl font-semibold">
         Frequently Asked Questions
       </h2>
       <p className="lg:w-8/12 mx-auto text-grey-600">
-        Here’s common frequently asked questions about Bossy. Still have some
+        Here’s common frequently asked questions about BossyPay. Still have some
         questions? Click button below to submit your questions.
       </p>
       <Accordion

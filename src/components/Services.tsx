@@ -28,7 +28,7 @@ const Services: React.FC<IServicesProps> = (props) => {
     []
   );
   return (
-    <section className="flex flex-col space-y-6">
+    <section id="services" className="flex flex-col space-y-6">
       <h2 className="text-3xl font-semibold">
         <span className="text-primary-800">Quick Steps</span> to Use Our
         Services

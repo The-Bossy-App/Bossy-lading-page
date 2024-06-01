@@ -26,12 +26,12 @@ const Footer: React.FC<IFooterProps> = (props) => {
         href: "/",
       },
       {
-        label: "About",
-        href: "/about",
+        label: "Services",
+        href: "#services",
       },
       {
-        label: "Why Bossy",
-        href: "/why-bossy",
+        label: "Why BossyPay",
+        href: "#faq",
       },
     ],
     []
@@ -59,23 +59,24 @@ const Footer: React.FC<IFooterProps> = (props) => {
   );
   const contacts = React.useMemo(
     () => [
-      "support@bossy.com",
+      "support@BossyPaypay.com",
     ],
     []
   );
-  const legals = React.useMemo(
-    () => [
-      {
-        label: "Privacy Policy",
-        href: "/privacy-policy",
-      },
-      {
-        label: "Terms of Service",
-        href: "/terms-of-service",
-      },
-    ],
-    []
-  );
+  const legals: any[] = [];
+  //  React.useMemo(
+  //   () => [
+  //     {
+  //       label: "Privacy Policy",
+  //       href: "/privacy-policy",
+  //     },
+  //     {
+  //       label: "Terms of Service",
+  //       href: "/terms-of-service",
+  //     },
+  //   ],
+  //   []
+  // );
   return (
     <footer className="text-white bg-dark-800 w-full h-full z-10 lg:px-20 px-5 lg:py-10 py-6 font-normal flex flex-col space-y-12">
       <section className="grid lg:grid-cols-3 grid-cols-[1fr_0.5fr] place-content-between content-around justify-between items-start flex-wrap gap-y-8 ">
@@ -84,10 +85,10 @@ const Footer: React.FC<IFooterProps> = (props) => {
             <span className="w-14 h-14 grid place-content-center rounded-full bg-white">
               <Image src="/Logo.png" width={30} height={30} alt="Logo" />
             </span>
-            <h4 className="font-black text-2xl">Bossy</h4>
+            <h4 className="font-black text-2xl">BossyPay</h4>
           </div>
           <p className="text-lg font-normal text-grey-300 w-3/4">
-            Bossy is a Financial Services Inc. company 2024
+            BossyPay is a Financial Services Inc. company 2024
           </p>
           <div className="w-full">
             <div className="relative lg:w-3/4 w-11/12">
@@ -150,7 +151,7 @@ const Footer: React.FC<IFooterProps> = (props) => {
         </div>
       </section>
       <div className="pt-6 border-t border-t-grey-800 flex lg:justify-between">
-        <p className="mx-auto lg:mx-0">2024 Bossy. All rights reserved.</p>
+        <p className="mx-auto lg:mx-0">2024 BossyPay. All rights reserved.</p>
         <div className="lg:flex space-x-12 hidden">
           {legals.map((val) => (
             <Link key={val.label} href={val.href}>

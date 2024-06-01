@@ -1,5 +1,5 @@
 {
-  "name": "bossy-landing",
+  "name": "BossyPay-landing",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "@radix-ui/react-accordion": "^1.1.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "framer-motion": "^11.2.10",
     "lucide-react": "^0.381.0",
     "next": "14.2.3",
     "react": "^18",

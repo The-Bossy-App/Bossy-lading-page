@@ -9,7 +9,7 @@ const Features: React.FC<IFeaturesProps> = (props) => {
       {
         heading: "User Friendly",
         description:
-          "Bossy is a free, secure and easy way to pay other people in your neighbourhood.",
+          "BossyPay is a free, secure and easy way to pay other people in your neighbourhood.",
         image: "image_1.png",
       },
       {
