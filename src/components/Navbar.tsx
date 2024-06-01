@@ -6,7 +6,7 @@ export interface INavbarProps {}
 
 const Navbar: React.FC<INavbarProps> = (props) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  
+
   const navItems = React.useMemo(
     () => [
       {
@@ -25,7 +25,7 @@ const Navbar: React.FC<INavbarProps> = (props) => {
     []
   );
   return (
-    <nav className="flex justify-between items-center p-5 w-full border-b border-b-primary-800 lg:border-b-transparent px-5 md:px-16 lg:px-20">
+    <nav className="flex sticky top-0 bg-white justify-between items-center p-5 w-full border-b border-b-primary-800 lg:border-b-transparent px-5 md:px-16 lg:px-20">
       <div className="flex space-x-4 items-center">
         <span className="w-14 h-14 grid place-content-center rounded-full bg-primary-200/[0.18]">
           <Image src="/Logo.png" width={30} height={30} alt="Logo" />
@@ -43,9 +43,9 @@ const Navbar: React.FC<INavbarProps> = (props) => {
             </Link>
           ))}
         </div>
-        <button className="py-3.5 rounded-full bg-primary-800 text-white lg:text-base text-xs px-10 ">
+        <Link href="#cta" className="py-3.5 rounded-full bg-primary-800 text-white lg:text-base text-xs px-10 ">
           Join Waitlist
-        </button>
+        </Link>
       </div>
       <div
         className="relative z-50 h-0.5 w-6 cursor-pointer rounded-full bg-primary-800 transition-all duration-300 ease-in-out before:absolute before:bottom-2 before:h-0.5 before:w-6 before:rounded-full before:bg-primary-800 before:transition-all before:duration-300 before:ease-in-out after:absolute after:top-2 after:h-0.5 after:w-6 after:rounded-full after:bg-primary-800 after:transition-all after:duration-300 after:ease-in-out data-true:bg-transparent data-true:before:top-0 data-true:before:-rotate-45 data-true:after:top-0 data-true:after:rotate-45 lg:hidden"

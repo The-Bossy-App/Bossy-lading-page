@@ -18,7 +18,7 @@ const CTA: React.FC<ICTAProps> = (props) => {
     setLoading(false)
   }
   return (
-    <section className="w-full text-center items-center bg-primary-800 flex flex-col text-white px-6 py-16 space-y-4 rounded-3xl">
+    <section id="cta" className="w-full text-center items-center bg-primary-800 flex flex-col text-white px-6 py-16 space-y-4 rounded-3xl">
       <h2 className="lg:text-4xl md:text-3xl text-2xl lg:w-5/12 font-semibold leading-snug">Ready to take control of your finances? </h2>
       <p className="lg:w-3/5 lg:text-xl md:text-lg text-sm">
         Welcome to our platform, where we revolutionise your finance journey!
