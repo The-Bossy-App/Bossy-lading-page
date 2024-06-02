@@ -6,12 +6,12 @@ export interface IServicesProps {}
 const Services: React.FC<IServicesProps> = (props) => {
   const services = React.useMemo(
     () => [
-      {
-        title: "Money Transfer",
-        description:
-          "Start your first money transfer with just a few clicks. Select the amount, choose the recipient, and confirm the transfer.",
-        image: "image_1.png",
-      },
+      // {
+      //   title: "Money Transfer",
+      //   description:
+      //     "Start your first money transfer with just a few clicks. Select the amount, choose the recipient, and confirm the transfer.",
+      //   image: "image_1.png",
+      // },
       {
         title: "Bills Payment",
         description:
